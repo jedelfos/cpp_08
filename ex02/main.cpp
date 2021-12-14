@@ -12,16 +12,16 @@ int main() {
 
 	stack.pop();
 
-	std::cout << stack.size() << std::endl;
+	std::cout << "size = " << stack.size() << std::endl;
 
 	stack.push(3);
 	stack.push(5);
 	stack.push(737);
-
 	stack.push(0);
 
 	MutantStack<int>::iterator it = stack.begin();
 	MutantStack<int>::iterator ite = stack.end();
+
 
 	++it;
 	--it;

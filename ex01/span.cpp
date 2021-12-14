@@ -40,11 +40,17 @@ unsigned int		Span::shortestSpan() {
 unsigned int		Span::longestSpan() {
 	std::vector<int>::iterator	it = _vector.begin();
 	std::vector<int>::iterator	ite = _vector.end();
+	unsigned int	sSpan = 0;
 
 	if (_vector.size() < 2)
 		throw std::range_error("Span size < 2, can't calculate longestSpan()");
 
-	return *(ite - 1) - *it;
+	for (; it != (ite - 1); ++it) {
+		if (static_cast<unsigned int>(*(it + 1) - *it) > sSpan)
+			sSpan = *(it + 1) - *it;
+	}
+
+	return sSpan;
 }
 
 const std::vector<int>&	 Span::get_vector() const {
